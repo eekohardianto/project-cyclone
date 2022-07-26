@@ -37,7 +37,10 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect('/dashboard')->with([
+            'type' => 'success',
+            'message' => 'You are logged in.'
+        ]);
     }
 
     /**
@@ -54,6 +57,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login')->with([
+            'type' => 'success', 'message' => 'You are now logout.',
+        ]);
     }
 }

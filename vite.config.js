@@ -5,10 +5,11 @@ import path from 'path';
 
 export default defineConfig({
     plugins: [
-        laravel({
-            input: 'resources/js/app.jsx',
-            refresh: true,
-        }),
+        laravel([
+            'resources/sass/app.sass',
+            'resources/js/app.jsx',
+        ],
+        {refresh: true,}),
         react(),
     ],
     resolve: {
