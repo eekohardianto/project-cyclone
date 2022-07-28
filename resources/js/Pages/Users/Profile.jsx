@@ -100,7 +100,7 @@ export default function Profile(props) {
                             <div className="row justify-content-center">
                                 <div className="col-4 col-lg-4 order-lg-2">
                                 <div className="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                    <a href="javascript:;">
+                                    <a href="#">
                                     <img src="/img/team-2.jpg" className="rounded-circle img-fluid border border-2 border-white" />
                                     </a>
                                 </div>
