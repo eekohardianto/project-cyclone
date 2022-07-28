@@ -35,9 +35,9 @@ export default function Profile(props) {
                             <h5 className="mb-1">
                             {auth.user.name}
                             </h5>
-                            {/* <p className="mb-0 font-weight-bold text-sm">
+                            <p className="mb-0 font-weight-bold text-sm">
                             Public Relations
-                            </p> */}
+                            </p> 
                         </div>
                         </div>
                         <div className="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
