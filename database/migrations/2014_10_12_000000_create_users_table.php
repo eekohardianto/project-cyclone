@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
             $table->string('email')->unique();
             $table->string('username', 25)->unique()->nullable();
             $table->string('address')->nullable();
@@ -24,6 +23,13 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::getPdo()->exec('
+            CREATE TRIGGER `add_user_info` AFTER INSERT ON `users` FOR EACH ROW
+            BEGIN                
+                    INSERT INTO `userInfo` VALUES(NEW.id, "No Name");                
+            END
+        ');
     }
 
     /**
