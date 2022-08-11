@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Models\UserInfo;
 
 class ProfileController extends Controller
 {
@@ -16,8 +16,11 @@ class ProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
-       // $profile =  User::where('')->first();
-        return inertia('Users/Profile');
-        //Auth::user()->id
+        $emp_details = UserInfo::where('id', Auth::user()->id)->first();        
+        return inertia('Users/Profile', [
+            'emp_details' => $emp_details,
+        ]);
+        
+        
     }
 }

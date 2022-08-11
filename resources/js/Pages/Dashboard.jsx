@@ -2,6 +2,7 @@ import React from 'react';
 import Authenticated from '../Layouts/Authenticated';
 
 export default function Dashboard() {
+    
     return (
         <>
             <div className="container-fluid py-4">

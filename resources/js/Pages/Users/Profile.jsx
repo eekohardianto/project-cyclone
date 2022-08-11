@@ -3,9 +3,10 @@ import React from 'react'
 import Authenticated from '../../Layouts/Authenticated'
 
 export default function Profile(props) {
+
     const { auth } = usePage().props;
 
-    const {data, setData, put, reset, errors} = useForm({ email: auth.user.email, username: auth.user.username, address: auth.user.address, });
+    const {data, setData, put, reset, errors} = useForm({ name: props.emp_details.name, email: auth.user.email, username: auth.user.username, address: auth.user.address, });
 
     const onChange = (e) => setData({ ...data, [e.target.id]: e.target.value });
 
@@ -75,7 +76,7 @@ export default function Profile(props) {
                                         <div className="col-md-12">
                                             <div className="form-group">
                                             <label htmlFor="name" className="form-control-label">Name</label>
-                                            <input className="form-control" type="text" name='name' value={data.email} onChange={onChange} id="name" />
+                                            <input className="form-control" type="text" name='name' value={data.name} onChange={onChange} id="name" />
                                             </div>
                                         </div>
                                         
