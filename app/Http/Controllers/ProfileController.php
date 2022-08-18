@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\UserInfo;
+use App\Models\Employee;
 
 class ProfileController extends Controller
 {
@@ -16,9 +16,9 @@ class ProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $emp_details = UserInfo::where('id', Auth::user()->id)->first();        
+        $employee = Employee::where('id', Auth::user()->id)->first();        
         return inertia('Users/Profile', [
-            'emp_details' => $emp_details,
+            'employee' => $employee,
         ]);
         
         

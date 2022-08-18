@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\EmployeeRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -32,13 +35,14 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user)
     {
         $attr = $request->toArray();
-        dd($attr);
-
+             
         $user->update($attr);
 
+        Employee::where('id', Auth::user()->id)->update(['name' => $attr['name']]);
+
         return back()->with([
-            'type' => 'success',
-            'message' => 'User has been updated',
+           'type' => 'success',
+           'message' => 'User has been updated',
         ]);
     }
 

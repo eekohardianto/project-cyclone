@@ -25,9 +25,9 @@ return new class extends Migration
         });
 
         DB::getPdo()->exec('
-            CREATE TRIGGER `add_user_info` AFTER INSERT ON `users` FOR EACH ROW
+            CREATE TRIGGER `add_emp` AFTER INSERT ON `users` FOR EACH ROW
             BEGIN                
-                    INSERT INTO `userInfo` VALUES(NEW.id, "No Name");                
+                    INSERT INTO `employee` VALUES(NEW.id, "No Name");                
             END
         ');
     }

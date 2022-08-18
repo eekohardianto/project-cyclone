@@ -6,7 +6,7 @@ export default function Profile(props) {
 
     const { auth } = usePage().props;
 
-    const {data, setData, put, reset, errors} = useForm({ name: props.emp_details.name, email: auth.user.email, username: auth.user.username, address: auth.user.address, });
+    const {data, setData, put, reset, errors} = useForm({ name: props.employee.name, JobTitle: props.employee.job_title, email: auth.user.email, username: auth.user.username, address: auth.user.address, });
 
     const onChange = (e) => setData({ ...data, [e.target.id]: e.target.value });
 
@@ -36,9 +36,9 @@ export default function Profile(props) {
                             <h5 className="mb-1">
                             {auth.user.name}
                             </h5>
-                            {/* <p className="mb-0 font-weight-bold text-sm">
-                            Public Relations
-                            </p> */}
+                            <p className="mb-0 font-weight-bold text-sm text-capitalize">
+                            {data.JobTitle}
+                            </p>
                         </div>
                         </div>
                         <div className="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
